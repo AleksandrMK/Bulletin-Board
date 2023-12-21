@@ -5,5 +5,18 @@ Ad
 {% endblock title %}
 
 {% block content %}
-<h1>{{ ad }}</h1>
+<br>
+<div class="text-secondary">{{ ad.date_create|date:'d M Y' }}</div>
+
+{% if user.is_authenticated %}
+    <a href="{{ ad.id }}/delete/">Удалить </a> |
+    <a href="{{ ad.id }}/edit/">Редактировать </a>
+{% endif %}
+<h1>{{ ad.title }}</h1>
+<p>{{ ad.text|safe }}</p>
+<div class="">
+    <a href="{% url 'response_create' ad=ad.id %}">
+        Оставить отклик
+    </a>
+</div>
 {% endblock content %}

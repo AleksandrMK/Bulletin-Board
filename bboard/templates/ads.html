@@ -16,7 +16,7 @@
     <div class="text-secondary">{{ ad.author }}</div>
     <p>{{ ad.text|safe}}</p>
     <div class="">
-        <a href="{% url 'responses_create' ad.id %}">
+        <a href="{% url 'response_create' ad.id %}">
             Добавить отклик
         </a>
     </div>
