@@ -32,12 +32,13 @@ class Ad(models.Model):
 
 class Response(models.Model):
     author = models.OneToOneField(User, on_delete=models.CASCADE)
+    ad = models.ForeignKey(Ad, on_delete=models.CASCADE)
     text = models.TextField()
-    article = models.ForeignKey(Ad, on_delete=models.CASCADE)
     status = models.BooleanField(default=False)
 
     def get_absolute_url(self):
         return reverse('ad', args=[str(self.Ad.id)])
 
-    # def __str__(self):
-    #     return self.author.title()
+
+class Subscriber(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)

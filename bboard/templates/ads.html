@@ -7,7 +7,7 @@
     <hr>
     <h4>
         <a href="{% url 'ads_list' %}{{ ad.id }}">
-            {{ ad.header }}
+            {{ ad.title }}
         </a> - {{ ad.date_create|date:'d M Y' }}
     </h4>
     <div class="text-secondary">
